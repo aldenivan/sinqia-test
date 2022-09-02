@@ -28,15 +28,15 @@ namespace SinqiaTest.Controllers
         }
 
         // GET: Places/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Places == null)
+        public async Task<IActionResult> Details(string? description)
+        
+            if (description == null || _context.Places == null)
             {
                 return NotFound();
             }
 
             var place = await _context.Places
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Filter(m => m.description == description);
             if (place == null)
             {
                 return NotFound();
@@ -52,8 +52,6 @@ namespace SinqiaTest.Controllers
         }
 
         // POST: Places/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,State,City,Date")] Place place)
@@ -84,8 +82,6 @@ namespace SinqiaTest.Controllers
         }
 
         // POST: Places/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,State,City,Date")] Place place)

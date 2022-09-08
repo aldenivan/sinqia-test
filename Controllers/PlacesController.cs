@@ -28,15 +28,15 @@ namespace SinqiaTest.Controllers
         }
 
         // GET: Places/Details/5
-        public async Task<IActionResult> Details(string? description)
-        
+         public async Task<IActionResult> Details(string? description)
+        {
             if (description == null || _context.Places == null)
             {
                 return NotFound();
             }
 
             var place = await _context.Places
-                .Filter(m => m.description == description);
+                .FirstOrDefaultAsync(m => m.Description == description);
             if (place == null)
             {
                 return NotFound();

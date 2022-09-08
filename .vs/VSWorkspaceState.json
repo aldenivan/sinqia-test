@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Controllers",
+    "\\Model",
     "\\Views",
     "\\Views\\Places"
   ],
-  "SelectedNode": "\\Controllers\\WeatherForecastController.cs",
+  "SelectedNode": "\\Views\\Places\\Edit.cshtml",
   "PreviewInSolutionExplorer": false
 }

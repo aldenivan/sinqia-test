@@ -11,6 +11,7 @@ namespace SinqiaTest.DB
             optionsBuilder.UseSqlServer("Data Source = PlaceData.db");
         }
 
+        #pragma warning disable CS8618
         public DbSet<Place> Places { get; set; }
 
     }
